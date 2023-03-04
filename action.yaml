@@ -1,0 +1,9 @@
+name: Replace Environment
+description: Detects *.template.yaml files and substitutes environment variables.
+runs:
+  using: docker
+  image: Dockerfile
+branding:
+  icon: file-text
+  color: orange
+
