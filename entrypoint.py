@@ -8,8 +8,8 @@ def replace(s: re.Match):
     var_name = s.group(1)
     if var_name in os.environ:
         return os.environ[var_name]
-
-    return ""
+    
+    raise NameError(f"Environment variable with name \"{var_name}\" could not be found.")
 
 
 def replace_file(filename: str) -> None:
@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
     if len(files):
         for i, filename in enumerate(files):
-            print(f"Processing file \"{filename}\" [{i+1} of [{len(files)}]]")
+            print(f"[{i+1} of [{len(files)}]] Processing \"{filename}\"")
             replace_file(filename)
     else:
         print("No files found.")
